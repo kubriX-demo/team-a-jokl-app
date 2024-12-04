@@ -1,0 +1,8 @@
+site_name: "jokl-app"
+site_description: "Documentation for jokl-app"
+
+nav:
+  - Introduction: index.md
+
+plugins:
+  - techdocs-core

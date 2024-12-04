@@ -1,0 +1,28 @@
+teamName: team-a
+appName: jokl-app
+repoUrl: https://github.com/kubriX-demo/team-a-jokl-app
+createAppNamespace: true
+stages:
+  - name: "test"
+    requestedFreight:
+    - origin:
+        kind: Warehouse
+        name: warehouse-{{ .Values.appName }}
+      sources:
+        direct: true
+  - name: "qa"
+    requestedFreight:
+    - origin:
+        kind: Warehouse
+        name: warehouse-{{ .Values.appName }}
+      sources:
+        stages:
+        - test
+  - name: "prod"
+    requestedFreight:
+    - origin:
+        kind: Warehouse
+        name: warehouse-{{ .Values.appName }}
+      sources:
+        stages:
+        - qa

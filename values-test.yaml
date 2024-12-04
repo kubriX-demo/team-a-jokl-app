@@ -1,0 +1,12 @@
+# applies to podtato-head-entry deployment only
+ingress:
+  className: nginx
+  annotations:
+    dns.gardener.cloud/class: garden
+    dns.gardener.cloud/dnsnames: team-a-jokl-app-test.demo.kubrix.cloud
+    dns.gardener.cloud/ttl: "180"
+  hosts:
+    - host: team-a-jokl-app-test.demo.kubrix.cloud
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
